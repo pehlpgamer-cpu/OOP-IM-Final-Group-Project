@@ -12,6 +12,7 @@
     <ItemGroup>
       <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
       <PackageReference Include="MaterialSkin" Version="0.2.1" />
+      <PackageReference Include="ModernUI" Version="2.0.0" />
     </ItemGroup>
 
     <ItemGroup>

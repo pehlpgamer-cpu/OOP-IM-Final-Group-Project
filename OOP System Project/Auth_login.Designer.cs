@@ -35,7 +35,7 @@ partial class Auth_login
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
+        ClientSize = new System.Drawing.Size(754, 450);
         Text = "Login";
         ResumeLayout(false);
     }
