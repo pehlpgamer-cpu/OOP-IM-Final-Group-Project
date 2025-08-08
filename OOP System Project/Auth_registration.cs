@@ -1,8 +1,8 @@
 namespace OOP_System_Project;
 
-public partial class Form1 : Form
+public partial class Auth_registration : Form
 {
-    public Form1()
+    public Auth_registration()
     {
         InitializeComponent();
     }
