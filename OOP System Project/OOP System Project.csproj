@@ -21,6 +21,12 @@
       <Compile Update="TermsAndConditions.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="ResetPassword.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="VerifyAccount.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

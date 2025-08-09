@@ -8,6 +8,7 @@ public partial class Auth_registration : Form
     public Auth_registration()
     {
         InitializeComponent();
+        
     }
     
     
@@ -57,13 +58,13 @@ public partial class Auth_registration : Form
 
     private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
     {
-        if (agreedToTermsAndConditions) {
-            agreedToTermsAndConditions = false;
-            checkBox_termsAndAgreements.Checked = false;
+        if (agreedToTermsAndConditions == false) {
+            agreedToTermsAndConditions = true;
+            //checkBox_termsAndAgreements.Checked = true;
         }
         else {
-            agreedToTermsAndConditions = true;
-            checkBox_termsAndAgreements.Checked = true;
+            agreedToTermsAndConditions = false;
+            //checkBox_termsAndAgreements.Checked = false;
         }
         SignupValidationFeedback();
     }
