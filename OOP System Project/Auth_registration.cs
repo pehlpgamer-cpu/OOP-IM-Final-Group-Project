@@ -67,7 +67,8 @@ public partial class Auth_registration : Form
 
     private void btn_forgotPassword_Click(object sender, EventArgs e)
     {
-        
+        TermsAndConditions x = new TermsAndConditions();
+        x.Show();
     }
 
     private void btn_generatePassword_Click(object sender, EventArgs e)
