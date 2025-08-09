@@ -148,6 +148,7 @@ partial class Auth_registration
         checkBox_termsAndAgreements.Text = "Do you agree with the terms and conditions?";
         checkBox_termsAndAgreements.UseVisualStyleBackColor = true;
         checkBox_termsAndAgreements.CheckedChanged += checkBox_termsAndAgreements_CheckedChanged;
+        checkBox_termsAndAgreements.Click += checkBox_termsAndAgreements_Click;
         // 
         // btn_termsAndConditionsForm
         // 

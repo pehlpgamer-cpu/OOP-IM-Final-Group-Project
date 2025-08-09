@@ -9,7 +9,6 @@ public partial class TermsAndConditions : Form
 
     private void btn_agree_Click(object sender, EventArgs e)
     {
-        Auth_registration.agreedToTermsAndConditions = true;
-        Close();
+        
     }
 }

@@ -4,7 +4,7 @@ namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
 {
-    public static bool agreedToTermsAndConditions = false;
+    
     public Auth_registration()
     {
         InitializeComponent();
@@ -46,8 +46,7 @@ public partial class Auth_registration : Form
             || txtBox_email.Text == string.Empty
             || txtBox_password.Text == string.Empty
             || txtBox_confirmPassword.Text == String.Empty
-            || checkBox_termsAndAgreements.Checked == false
-            || agreedToTermsAndConditions == false) 
+            || checkBox_termsAndAgreements.Checked == false) 
             btn_signup.BackColor = Color.WhiteSmoke;
         else btn_signup.BackColor = Color.LightGreen;
     }
@@ -56,18 +55,7 @@ public partial class Auth_registration : Form
     private void txtBox_password_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
     private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
 
-    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
-    {
-        if (agreedToTermsAndConditions == false) {
-            agreedToTermsAndConditions = true;
-            //checkBox_termsAndAgreements.Checked = true;
-        }
-        else {
-            agreedToTermsAndConditions = false;
-            //checkBox_termsAndAgreements.Checked = false;
-        }
-        SignupValidationFeedback();
-    }
+    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e) { SignupValidationFeedback(); }
 
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e)
     {
@@ -92,5 +80,10 @@ public partial class Auth_registration : Form
     {
         Random rnd = new Random();
 
+    }
+
+    private void checkBox_termsAndAgreements_Click(object sender, EventArgs e)
+    {
+        
     }
 }
