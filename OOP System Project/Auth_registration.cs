@@ -14,12 +14,26 @@ public partial class Auth_registration : Form
 
     private void btn_passwordVisibility_Click(object sender, EventArgs e)
     {
-        
+        if (txtBox_password.PasswordChar == '*') {
+            txtBox_password.PasswordChar = '\0';
+            btn_passwordVisibility.Text = "hide";
+        }
+        else {
+            txtBox_password.PasswordChar = '*';
+            btn_passwordVisibility.Text = "view";
+        }
     }
 
     private void btn_confirmPasswordVisibility_Click(object sender, EventArgs e)
     {
-        
+        if (txtBox_confirmPassword.PasswordChar == '*') {
+            txtBox_confirmPassword.PasswordChar = '\0';
+            btn_confirmPasswordVisibility.Text = "hide";
+        }
+        else {
+            txtBox_confirmPassword.PasswordChar = '*';
+            btn_confirmPasswordVisibility.Text = "view";
+        }
     }
 
     private void txtBox_username_TextChanged(object sender, EventArgs e)
@@ -54,7 +68,9 @@ public partial class Auth_registration : Form
 
     private void btn_loginForm_Click(object sender, EventArgs e)
     {
-        
+        Hide();
+        Auth_login x = new Auth_login();
+        x.Show();
     }
 
     private void btn_forgotPassword_Click(object sender, EventArgs e)
