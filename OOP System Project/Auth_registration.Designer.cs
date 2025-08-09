@@ -43,12 +43,13 @@ partial class Auth_registration
         btn_termsAndConditionsForm = new System.Windows.Forms.Button();
         btn_loginForm = new System.Windows.Forms.Button();
         btn_forgotPassword = new System.Windows.Forms.Button();
+        listBox1 = new System.Windows.Forms.ListBox();
         SuspendLayout();
         // 
         // txtBox_username
         // 
         txtBox_username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        txtBox_username.Location = new System.Drawing.Point(161, 41);
+        txtBox_username.Location = new System.Drawing.Point(34, 36);
         txtBox_username.Name = "txtBox_username";
         txtBox_username.PlaceholderText = "username";
         txtBox_username.Size = new System.Drawing.Size(418, 34);
@@ -60,7 +61,7 @@ partial class Auth_registration
         btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_signup.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_signup.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_signup.Location = new System.Drawing.Point(258, 276);
+        btn_signup.Location = new System.Drawing.Point(146, 281);
         btn_signup.Name = "btn_signup";
         btn_signup.Size = new System.Drawing.Size(191, 49);
         btn_signup.TabIndex = 1;
@@ -71,7 +72,7 @@ partial class Auth_registration
         // txtBox_email
         // 
         txtBox_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        txtBox_email.Location = new System.Drawing.Point(161, 81);
+        txtBox_email.Location = new System.Drawing.Point(34, 76);
         txtBox_email.Name = "txtBox_email";
         txtBox_email.PlaceholderText = "email";
         txtBox_email.Size = new System.Drawing.Size(418, 34);
@@ -81,7 +82,7 @@ partial class Auth_registration
         // txtBox_password
         // 
         txtBox_password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        txtBox_password.Location = new System.Drawing.Point(161, 121);
+        txtBox_password.Location = new System.Drawing.Point(34, 116);
         txtBox_password.Name = "txtBox_password";
         txtBox_password.PlaceholderText = "password";
         txtBox_password.Size = new System.Drawing.Size(303, 34);
@@ -91,7 +92,7 @@ partial class Auth_registration
         // txtBox_confirmPassword
         // 
         txtBox_confirmPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        txtBox_confirmPassword.Location = new System.Drawing.Point(161, 166);
+        txtBox_confirmPassword.Location = new System.Drawing.Point(34, 161);
         txtBox_confirmPassword.Name = "txtBox_confirmPassword";
         txtBox_confirmPassword.PlaceholderText = "confirm password";
         txtBox_confirmPassword.Size = new System.Drawing.Size(352, 34);
@@ -103,7 +104,7 @@ partial class Auth_registration
         btn_generatePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_generatePassword.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_generatePassword.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_generatePassword.Location = new System.Drawing.Point(470, 123);
+        btn_generatePassword.Location = new System.Drawing.Point(343, 118);
         btn_generatePassword.Name = "btn_generatePassword";
         btn_generatePassword.Size = new System.Drawing.Size(43, 34);
         btn_generatePassword.TabIndex = 5;
@@ -116,7 +117,7 @@ partial class Auth_registration
         btn_confirmPasswordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_confirmPasswordVisibility.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_confirmPasswordVisibility.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_confirmPasswordVisibility.Location = new System.Drawing.Point(519, 166);
+        btn_confirmPasswordVisibility.Location = new System.Drawing.Point(392, 161);
         btn_confirmPasswordVisibility.Name = "btn_confirmPasswordVisibility";
         btn_confirmPasswordVisibility.Size = new System.Drawing.Size(60, 34);
         btn_confirmPasswordVisibility.TabIndex = 7;
@@ -129,7 +130,7 @@ partial class Auth_registration
         btn_passwordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_passwordVisibility.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_passwordVisibility.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_passwordVisibility.Location = new System.Drawing.Point(519, 123);
+        btn_passwordVisibility.Location = new System.Drawing.Point(392, 118);
         btn_passwordVisibility.Name = "btn_passwordVisibility";
         btn_passwordVisibility.Size = new System.Drawing.Size(60, 34);
         btn_passwordVisibility.TabIndex = 8;
@@ -140,7 +141,7 @@ partial class Auth_registration
         // checkBox_termsAndAgreements
         // 
         checkBox_termsAndAgreements.Font = new System.Drawing.Font("Segoe UI", 10F);
-        checkBox_termsAndAgreements.Location = new System.Drawing.Point(161, 206);
+        checkBox_termsAndAgreements.Location = new System.Drawing.Point(34, 201);
         checkBox_termsAndAgreements.Name = "checkBox_termsAndAgreements";
         checkBox_termsAndAgreements.Size = new System.Drawing.Size(382, 54);
         checkBox_termsAndAgreements.TabIndex = 9;
@@ -153,7 +154,7 @@ partial class Auth_registration
         btn_termsAndConditionsForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_termsAndConditionsForm.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_termsAndConditionsForm.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_termsAndConditionsForm.Location = new System.Drawing.Point(549, 215);
+        btn_termsAndConditionsForm.Location = new System.Drawing.Point(422, 210);
         btn_termsAndConditionsForm.Name = "btn_termsAndConditionsForm";
         btn_termsAndConditionsForm.Size = new System.Drawing.Size(30, 35);
         btn_termsAndConditionsForm.TabIndex = 10;
@@ -167,7 +168,7 @@ partial class Auth_registration
         btn_loginForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_loginForm.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)0));
         btn_loginForm.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_loginForm.Location = new System.Drawing.Point(308, 405);
+        btn_loginForm.Location = new System.Drawing.Point(206, 375);
         btn_loginForm.Name = "btn_loginForm";
         btn_loginForm.Size = new System.Drawing.Size(81, 33);
         btn_loginForm.TabIndex = 11;
@@ -181,7 +182,7 @@ partial class Auth_registration
         btn_forgotPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_forgotPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)0));
         btn_forgotPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_forgotPassword.Location = new System.Drawing.Point(274, 366);
+        btn_forgotPassword.Location = new System.Drawing.Point(169, 336);
         btn_forgotPassword.Name = "btn_forgotPassword";
         btn_forgotPassword.Size = new System.Drawing.Size(153, 33);
         btn_forgotPassword.TabIndex = 12;
@@ -189,11 +190,20 @@ partial class Auth_registration
         btn_forgotPassword.UseVisualStyleBackColor = true;
         btn_forgotPassword.Click += btn_forgotPassword_Click;
         // 
+        // listBox1
+        // 
+        listBox1.FormattingEnabled = true;
+        listBox1.Location = new System.Drawing.Point(34, 432);
+        listBox1.Name = "listBox1";
+        listBox1.Size = new System.Drawing.Size(418, 224);
+        listBox1.TabIndex = 13;
+        // 
         // Auth_registration
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(800, 450);
+        ClientSize = new System.Drawing.Size(490, 412);
+        Controls.Add(listBox1);
         Controls.Add(btn_forgotPassword);
         Controls.Add(btn_loginForm);
         Controls.Add(btn_termsAndConditionsForm);
@@ -211,6 +221,8 @@ partial class Auth_registration
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.ListBox listBox1;
 
     private System.Windows.Forms.Button btn_forgotPassword;
 
