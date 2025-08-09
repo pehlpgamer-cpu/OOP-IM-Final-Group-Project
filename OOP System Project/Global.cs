@@ -2,6 +2,9 @@ namespace OOP_System_Project;
 
 public class Global
 {
+    public static string username;
+    public static string password;
+    public static string id;
     
 }
 
