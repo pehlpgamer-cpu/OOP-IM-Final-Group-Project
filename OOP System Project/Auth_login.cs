@@ -7,14 +7,21 @@ public partial class Auth_login : Form
         InitializeComponent();
     }
 
+    private void LoginValidationFeedback()
+    {
+        if (txtBox_username.Text == string.Empty || txtBox_password.Text == string.Empty) btn_login.BackColor = Color.WhiteSmoke;
+        else btn_login.BackColor = Color.LightGreen;
+        
+    }
+
     private void txtBox_password_TextChanged(object sender, EventArgs e)
     {
-        
+        LoginValidationFeedback();
     }
 
     private void txtBox_username_TextChanged(object sender, EventArgs e)
     {
-        
+        LoginValidationFeedback();
     }
 
     private void btn_login_Click(object sender, EventArgs e)

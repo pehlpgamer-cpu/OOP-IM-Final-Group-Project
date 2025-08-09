@@ -109,6 +109,7 @@ partial class Auth_registration
         btn_generatePassword.TabIndex = 5;
         btn_generatePassword.Text = "🎲";
         btn_generatePassword.UseVisualStyleBackColor = true;
+        btn_generatePassword.Click += btn_generatePassword_Click;
         // 
         // btn_confirmPasswordVisibility
         // 

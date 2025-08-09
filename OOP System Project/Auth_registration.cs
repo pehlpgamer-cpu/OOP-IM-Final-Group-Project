@@ -1,3 +1,5 @@
+using System.Security.Policy;
+
 namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
@@ -6,7 +8,8 @@ public partial class Auth_registration : Form
     {
         InitializeComponent();
     }
-
+    
+    
     private void btn_signup_Click(object sender, EventArgs e)
     {
         
@@ -35,31 +38,20 @@ public partial class Auth_registration : Form
             btn_confirmPasswordVisibility.Text = "view";
         }
     }
-
-    private void txtBox_username_TextChanged(object sender, EventArgs e)
-    {
-        
+    
+    private void SignupValidationFeedback() {
+        if (txtBox_username.Text == string.Empty
+            || txtBox_email.Text == string.Empty
+            || txtBox_password.Text == string.Empty
+            || txtBox_confirmPassword.Text == String.Empty
+            || checkBox_termsAndAgreements.Checked == false) btn_signup.BackColor = Color.WhiteSmoke;
+        else btn_signup.BackColor = Color.LightGreen;
     }
-
-    private void txtBox_email_TextChanged(object sender, EventArgs e)
-    {
-        
-    }
-
-    private void txtBox_password_TextChanged(object sender, EventArgs e)
-    {
-        
-    }
-
-    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e)
-    {
-        
-    }
-
-    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
-    {
-        
-    }
+    private void txtBox_username_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
+    private void txtBox_email_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
+    private void txtBox_password_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
+    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
+    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e) { SignupValidationFeedback();}
 
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e)
     {
@@ -76,5 +68,11 @@ public partial class Auth_registration : Form
     private void btn_forgotPassword_Click(object sender, EventArgs e)
     {
         
+    }
+
+    private void btn_generatePassword_Click(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+
     }
 }
