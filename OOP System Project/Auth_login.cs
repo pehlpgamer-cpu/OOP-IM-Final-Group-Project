@@ -25,4 +25,11 @@ public partial class Auth_login : Form
         }
         MessageBox.Show("Login Successfull");
     }
+
+    private void btn_signupForm_Click(object sender, EventArgs e)
+    {
+        Hide();
+        Auth_registration x = new Auth_registration();
+        x.ShowDialog();
+    }
 }
