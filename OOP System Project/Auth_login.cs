@@ -39,4 +39,16 @@ public partial class Auth_login : Form
         Auth_registration x = new Auth_registration();
         x.ShowDialog();
     }
+
+    private void btn_passwordVisibility_Click(object sender, EventArgs e)
+    {
+        if (txtBox_password.PasswordChar == '*') {
+            txtBox_password.PasswordChar = '\0';
+            btn_passwordVisibility.Text = "hide";
+        }
+        else {
+            txtBox_password.PasswordChar = '*';
+            btn_passwordVisibility.Text = "view";
+        }
+    }
 }

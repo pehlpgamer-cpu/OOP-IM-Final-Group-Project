@@ -42,6 +42,7 @@ partial class Auth_login
         txtBox_password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
         txtBox_password.Location = new System.Drawing.Point(280, 150);
         txtBox_password.Name = "txtBox_password";
+        txtBox_password.PasswordChar = '*';
         txtBox_password.PlaceholderText = "password";
         txtBox_password.Size = new System.Drawing.Size(171, 34);
         txtBox_password.TabIndex = 1;
@@ -79,6 +80,7 @@ partial class Auth_login
         btn_passwordVisibility.TabIndex = 5;
         btn_passwordVisibility.Text = "view";
         btn_passwordVisibility.UseVisualStyleBackColor = true;
+        btn_passwordVisibility.Click += btn_passwordVisibility_Click;
         // 
         // btn_signupForm
         // 

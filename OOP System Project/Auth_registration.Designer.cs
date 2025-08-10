@@ -84,6 +84,7 @@ partial class Auth_registration
         txtBox_password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
         txtBox_password.Location = new System.Drawing.Point(34, 116);
         txtBox_password.Name = "txtBox_password";
+        txtBox_password.PasswordChar = '*';
         txtBox_password.PlaceholderText = "password";
         txtBox_password.Size = new System.Drawing.Size(303, 34);
         txtBox_password.TabIndex = 3;
@@ -94,6 +95,7 @@ partial class Auth_registration
         txtBox_confirmPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
         txtBox_confirmPassword.Location = new System.Drawing.Point(34, 161);
         txtBox_confirmPassword.Name = "txtBox_confirmPassword";
+        txtBox_confirmPassword.PasswordChar = '*';
         txtBox_confirmPassword.PlaceholderText = "confirm password";
         txtBox_confirmPassword.Size = new System.Drawing.Size(352, 34);
         txtBox_confirmPassword.TabIndex = 4;
