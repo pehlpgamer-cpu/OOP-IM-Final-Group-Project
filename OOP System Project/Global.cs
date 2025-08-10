@@ -2,9 +2,7 @@ namespace OOP_System_Project;
 
 public class AccountLoginInfo
 {
-    public static string username;
-    public static string password;
-    public static string id;
+    public static string sessionId;
 }
 
 public class theme

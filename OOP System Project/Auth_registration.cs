@@ -4,7 +4,11 @@ namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
 {
-    
+    const int MINIMUM_PASSWORD_LENGTH = 18;
+    const int MAXIMUM_PASSWORD_LENGTH = 64;
+    const int MINIMUM_USERNAME_LENGTH = 8;
+    const int MAXIMUM_USERNAME_LENGTH = 20;
+        
     public Auth_registration()
     {
         InitializeComponent();
@@ -14,7 +18,12 @@ public partial class Auth_registration : Form
     
     private void btn_signup_Click(object sender, EventArgs e)
     {
-        
+        if (SignupValidationFeedback() == false)
+        {
+            
+        }
+        VerifyAccount x = new VerifyAccount();
+        x.Show();
     }
 
     private void btn_passwordVisibility_Click(object sender, EventArgs e)
@@ -41,14 +50,38 @@ public partial class Auth_registration : Form
         }
     }
     
-    private void SignupValidationFeedback() {
-        if (txtBox_username.Text == string.Empty
-            || txtBox_email.Text == string.Empty
-            || txtBox_password.Text == string.Empty
-            || txtBox_confirmPassword.Text == String.Empty
-            || checkBox_termsAndAgreements.Checked == false) 
+    private bool SignupValidationFeedback() {
+        if (txtBox_username.Text == string.Empty ||
+            txtBox_username.Text.Length > MAXIMUM_USERNAME_LENGTH ||
+            txtBox_username.Text.Length < MINIMUM_USERNAME_LENGTH) {
             btn_signup.BackColor = Color.WhiteSmoke;
-        else btn_signup.BackColor = Color.LightGreen;
+            return false;
+        }
+
+        if (txtBox_email.Text == string.Empty)
+        {
+            
+        }
+
+        if (txtBox_password.Text == string.Empty ||
+            txtBox_password.Text.Length > MAXIMUM_PASSWORD_LENGTH ||
+            txtBox_password.Text.Length < MINIMUM_PASSWORD_LENGTH)
+        {
+            
+        }
+
+        if (txtBox_confirmPassword.Text == String.Empty)
+        {
+            
+        }
+
+        if (checkBox_termsAndAgreements.Checked == false)
+        {
+            
+        }
+        
+        btn_signup.BackColor = Color.LightGreen;
+        return true;    
     }
     private void txtBox_username_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
     private void txtBox_email_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
@@ -72,18 +105,14 @@ public partial class Auth_registration : Form
 
     private void btn_forgotPassword_Click(object sender, EventArgs e)
     {
-        TermsAndConditions x = new TermsAndConditions();
+        ResetPassword x = new ResetPassword();
         x.Show();
     }
 
     private void btn_generatePassword_Click(object sender, EventArgs e)
     {
         Random rnd = new Random();
-
-    }
-
-    private void checkBox_termsAndAgreements_Click(object sender, EventArgs e)
-    {
         
+
     }
 }
