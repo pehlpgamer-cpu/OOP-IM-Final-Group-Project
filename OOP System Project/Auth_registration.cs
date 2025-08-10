@@ -1,5 +1,5 @@
 using System.Security.Policy;
-
+using MySql.Data.MySqlClient;
 namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
@@ -12,7 +12,8 @@ public partial class Auth_registration : Form
     public Auth_registration()
     {
         InitializeComponent();
-        
+        using var con = new MySqlConnection(Global.cs);
+        con.Open();
     }
     
     
@@ -21,35 +22,24 @@ public partial class Auth_registration : Form
         if (SignupValidationFeedback() == false)
         {
             
+            string usernameInput = txtBox_username.Text.Trim();
+            string emailInput = txtBox_email.Text.Trim();
+            string passwordInput = txtBox_password.Text.Trim();
+            
+            //generate salt
+            //pass + salt
+            //salted pass -> Argon2id hash
+            //hash -> store in db
+            //salt -> store in db
+            //generate activation code
+            //send activation code to email
+            
         }
         VerifyAccount x = new VerifyAccount();
         x.Show();
     }
 
-    private void btn_passwordVisibility_Click(object sender, EventArgs e)
-    {
-        if (txtBox_password.PasswordChar == '*') {
-            txtBox_password.PasswordChar = '\0';
-            btn_passwordVisibility.Text = "hide";
-        }
-        else {
-            txtBox_password.PasswordChar = '*';
-            btn_passwordVisibility.Text = "view";
-        }
-    }
 
-    private void btn_confirmPasswordVisibility_Click(object sender, EventArgs e)
-    {
-        if (txtBox_confirmPassword.PasswordChar == '*') {
-            txtBox_confirmPassword.PasswordChar = '\0';
-            btn_confirmPasswordVisibility.Text = "hide";
-        }
-        else {
-            txtBox_confirmPassword.PasswordChar = '*';
-            btn_confirmPasswordVisibility.Text = "view";
-        }
-    }
-    
     private bool SignupValidationFeedback() {
         if (txtBox_username.Text == string.Empty ||
             txtBox_username.Text.Length > MAXIMUM_USERNAME_LENGTH ||
@@ -87,27 +77,16 @@ public partial class Auth_registration : Form
     private void txtBox_email_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
     private void txtBox_password_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
     private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
-
     private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e) { SignupValidationFeedback(); }
-
-    private void btn_termsAndConditionsForm_Click(object sender, EventArgs e)
-    {
-        TermsAndConditions x = new TermsAndConditions();
-        x.Show();
-    }
-
-    private void btn_loginForm_Click(object sender, EventArgs e)
-    {
-        Hide();
-        Auth_login x = new Auth_login();
-        x.Show();
-    }
-
-    private void btn_forgotPassword_Click(object sender, EventArgs e)
-    {
-        ResetPassword x = new ResetPassword();
-        x.Show();
-    }
+    private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
+    private void btn_loginForm_Click(object sender, EventArgs e) { Hide(); Auth_login x = new Auth_login(); x.Show(); }
+    private void btn_forgotPassword_Click(object sender, EventArgs e) { ResetPassword x = new ResetPassword(); x.Show(); }
+    private void btn_passwordVisibility_Click(object sender, EventArgs e) 
+    { if (txtBox_password.PasswordChar == '*') { txtBox_password.PasswordChar = '\0'; btn_passwordVisibility.Text = "hide"; }
+        else { txtBox_password.PasswordChar = '*'; btn_passwordVisibility.Text = "view"; } }
+    private void btn_confirmPasswordVisibility_Click(object sender, EventArgs e) 
+    { if (txtBox_confirmPassword.PasswordChar == '*') { txtBox_confirmPassword.PasswordChar = '\0'; btn_confirmPasswordVisibility.Text = "hide"; }
+        else { txtBox_confirmPassword.PasswordChar = '*'; btn_confirmPasswordVisibility.Text = "view"; } }
 
     private void btn_generatePassword_Click(object sender, EventArgs e)
     {

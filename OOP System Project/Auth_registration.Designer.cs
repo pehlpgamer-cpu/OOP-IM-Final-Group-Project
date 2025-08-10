@@ -204,7 +204,7 @@ partial class Auth_registration
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(490, 412);
+        ClientSize = new System.Drawing.Size(490, 673);
         Controls.Add(listBox1);
         Controls.Add(btn_forgotPassword);
         Controls.Add(btn_loginForm);

@@ -1,8 +1,10 @@
 namespace OOP_System_Project;
-
-public class AccountLoginInfo
+using MySql.Data.MySqlClient;
+public class Global
 {
     public static string sessionId;
+    public static string cs = @"server=localhost;userid=member;password=s$cret;database=testdb";
+    
 }
 
 public class theme
