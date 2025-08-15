@@ -3,7 +3,13 @@ using MySql.Data.MySqlClient;
 public class Global
 {
     public static string sessionId;
-    public static string cs = @"server=localhost;userid=member;password=s$cret;database=testdb";
+    //public static string cs = @"server=localhost;userid=member;password=s$cret;database=testdb";
+    
+}
+
+public class message
+{
+    public static readonly string fieldRequired = "This Field is required";
     
 }
 

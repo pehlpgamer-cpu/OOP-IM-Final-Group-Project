@@ -58,6 +58,7 @@ partial class Auth_registration
         txtBox_username.Size = new System.Drawing.Size(418, 34);
         txtBox_username.TabIndex = 0;
         txtBox_username.TextChanged += txtBox_username_TextChanged;
+        txtBox_username.Leave += txtBox_username_Leave;
         // 
         // btn_signup
         // 
@@ -81,6 +82,7 @@ partial class Auth_registration
         txtBox_email.Size = new System.Drawing.Size(418, 34);
         txtBox_email.TabIndex = 2;
         txtBox_email.TextChanged += txtBox_email_TextChanged;
+        txtBox_email.Leave += txtBox_email_Leave;
         // 
         // txtBox_password
         // 
@@ -92,6 +94,7 @@ partial class Auth_registration
         txtBox_password.Size = new System.Drawing.Size(303, 34);
         txtBox_password.TabIndex = 3;
         txtBox_password.TextChanged += txtBox_password_TextChanged;
+        txtBox_password.Leave += txtBox_password_Leave;
         // 
         // txtBox_confirmPassword
         // 
@@ -103,6 +106,7 @@ partial class Auth_registration
         txtBox_confirmPassword.Size = new System.Drawing.Size(352, 34);
         txtBox_confirmPassword.TabIndex = 4;
         txtBox_confirmPassword.TextChanged += txtBox_confirmPassword_TextChanged;
+        txtBox_confirmPassword.Leave += txtBox_confirmPassword_Leave;
         // 
         // btn_generatePassword
         // 
@@ -197,51 +201,51 @@ partial class Auth_registration
         // 
         // label_usernameInvalidInput
         // 
+        label_usernameInvalidInput.AutoSize = true;
         label_usernameInvalidInput.BackColor = System.Drawing.SystemColors.Control;
         label_usernameInvalidInput.Font = new System.Drawing.Font("Segoe UI", 10F);
         label_usernameInvalidInput.ForeColor = System.Drawing.Color.Red;
         label_usernameInvalidInput.Location = new System.Drawing.Point(34, 73);
         label_usernameInvalidInput.Name = "label_usernameInvalidInput";
-        label_usernameInvalidInput.Size = new System.Drawing.Size(100, 23);
+        label_usernameInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_usernameInvalidInput.TabIndex = 13;
         label_usernameInvalidInput.Text = "label1";
-        label_usernameInvalidInput.Visible = false;
         // 
         // label_emailInvalidInput
         // 
+        label_emailInvalidInput.AutoSize = true;
         label_emailInvalidInput.BackColor = System.Drawing.SystemColors.Control;
         label_emailInvalidInput.Font = new System.Drawing.Font("Segoe UI", 10F);
         label_emailInvalidInput.ForeColor = System.Drawing.Color.Red;
         label_emailInvalidInput.Location = new System.Drawing.Point(34, 136);
         label_emailInvalidInput.Name = "label_emailInvalidInput";
-        label_emailInvalidInput.Size = new System.Drawing.Size(100, 23);
+        label_emailInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_emailInvalidInput.TabIndex = 14;
         label_emailInvalidInput.Text = "label2";
-        label_emailInvalidInput.Visible = false;
         // 
         // label_passwordInvalidInput
         // 
+        label_passwordInvalidInput.AutoSize = true;
         label_passwordInvalidInput.BackColor = System.Drawing.SystemColors.Control;
         label_passwordInvalidInput.Font = new System.Drawing.Font("Segoe UI", 10F);
         label_passwordInvalidInput.ForeColor = System.Drawing.Color.Red;
         label_passwordInvalidInput.Location = new System.Drawing.Point(34, 199);
         label_passwordInvalidInput.Name = "label_passwordInvalidInput";
-        label_passwordInvalidInput.Size = new System.Drawing.Size(100, 23);
+        label_passwordInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_passwordInvalidInput.TabIndex = 15;
         label_passwordInvalidInput.Text = "label3";
-        label_passwordInvalidInput.Visible = false;
         // 
         // label_confirmPasswordInvalidInput
         // 
+        label_confirmPasswordInvalidInput.AutoSize = true;
         label_confirmPasswordInvalidInput.BackColor = System.Drawing.SystemColors.Control;
         label_confirmPasswordInvalidInput.Font = new System.Drawing.Font("Segoe UI", 10F);
         label_confirmPasswordInvalidInput.ForeColor = System.Drawing.Color.Red;
         label_confirmPasswordInvalidInput.Location = new System.Drawing.Point(34, 262);
         label_confirmPasswordInvalidInput.Name = "label_confirmPasswordInvalidInput";
-        label_confirmPasswordInvalidInput.Size = new System.Drawing.Size(100, 23);
+        label_confirmPasswordInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_confirmPasswordInvalidInput.TabIndex = 16;
         label_confirmPasswordInvalidInput.Text = "label4";
-        label_confirmPasswordInvalidInput.Visible = false;
         // 
         // Auth_registration
         // 

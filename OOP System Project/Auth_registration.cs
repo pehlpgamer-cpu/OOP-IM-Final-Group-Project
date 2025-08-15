@@ -1,4 +1,5 @@
 using System.Security.Policy;
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 namespace OOP_System_Project;
 
@@ -8,24 +9,55 @@ public partial class Auth_registration : Form
     const int MAXIMUM_PASSWORD_LENGTH = 64;
     const int MINIMUM_USERNAME_LENGTH = 8;
     const int MAXIMUM_USERNAME_LENGTH = 20;
-        
+    const string VALID_USERNAME_CHARS = @"^[a-zA-Z0-9_]+$";
+    const string VALID_EMAIL_FORMAT = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+    const string VALID_PASSWORD_CHARS = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
+
+    private bool validUsername;
+    private bool validEmail;
+    private bool validPassword;
+    private bool validConfirmPassword;
+    
     public Auth_registration()
     {
+        
         InitializeComponent();
-        using var con = new MySqlConnection(Global.cs);
-        con.Open();
+        //using var con = new MySqlConnection(Global.cs);
+        //con.Open();
     }
     
     
     private void btn_signup_Click(object sender, EventArgs e)
     {
-       
+        
+        //username input
+        //fetch from DB - username
+        //if exist it or not
+        
+        //email input
+        //fetch from DB - email
+        //if exist it or not
+        
+        
     }
     
     private void txtBox_username_TextChanged(object sender, EventArgs e)
     {
+        //Regex regex = new Regex(VALID_USERNAME_CHARS);
         
+        if (txtBox_username.Text.Trim().Length >= MAXIMUM_USERNAME_LENGTH)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters";
+        }
+
+        if (txtBox_username.Text.Trim().Length <= MINIMUM_USERNAME_LENGTH)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters";
+        }
     }
+    
 
     private void txtBox_email_TextChanged(object sender, EventArgs e)
     {
@@ -39,8 +71,18 @@ public partial class Auth_registration : Form
 
     private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e)
     {
-        
+        if (txtBox_password.Text.Trim() != txtBox_confirmPassword.Text.Trim())
+        {
+            label_confirmPasswordInvalidInput.Text = "Passwords do not match";
+        }
     }
+    //Trim() textboxes
+    private void txtBox_username_Leave(object sender, EventArgs e) { txtBox_username.Text = txtBox_username.Text.Trim(); }
+    private void txtBox_email_Leave(object sender, EventArgs e) { txtBox_email.Text = txtBox_email.Text.Trim(); }
+    private void txtBox_password_Leave(object sender, EventArgs e) { txtBox_password.Text = txtBox_password.Text.Trim(); }
+    private void txtBox_confirmPassword_Leave(object sender, EventArgs e) { txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim(); }
+    
+    
 
     private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
     {
@@ -63,4 +105,7 @@ public partial class Auth_registration : Form
         
 
     }
+
+
+    
 }
