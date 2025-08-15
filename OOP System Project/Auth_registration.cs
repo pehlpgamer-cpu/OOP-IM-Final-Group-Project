@@ -19,65 +19,34 @@ public partial class Auth_registration : Form
     
     private void btn_signup_Click(object sender, EventArgs e)
     {
-        if (SignupValidationFeedback() == false)
-        {
-            
-            string usernameInput = txtBox_username.Text.Trim();
-            string emailInput = txtBox_email.Text.Trim();
-            string passwordInput = txtBox_password.Text.Trim();
-            
-            //generate salt
-            //pass + salt
-            //salted pass -> Argon2id hash
-            //hash -> store in db
-            //salt -> store in db
-            //generate activation code
-            //send activation code to email
-            
-        }
-        VerifyAccount x = new VerifyAccount();
-        x.Show();
+       
     }
-
-
-    private bool SignupValidationFeedback() {
-        if (txtBox_username.Text == string.Empty ||
-            txtBox_username.Text.Length > MAXIMUM_USERNAME_LENGTH ||
-            txtBox_username.Text.Length < MINIMUM_USERNAME_LENGTH) {
-            btn_signup.BackColor = Color.WhiteSmoke;
-            return false;
-        }
-
-        if (txtBox_email.Text == string.Empty)
-        {
-            
-        }
-
-        if (txtBox_password.Text == string.Empty ||
-            txtBox_password.Text.Length > MAXIMUM_PASSWORD_LENGTH ||
-            txtBox_password.Text.Length < MINIMUM_PASSWORD_LENGTH)
-        {
-            
-        }
-
-        if (txtBox_confirmPassword.Text == String.Empty)
-        {
-            
-        }
-
-        if (checkBox_termsAndAgreements.Checked == false)
-        {
-            
-        }
+    
+    private void txtBox_username_TextChanged(object sender, EventArgs e)
+    {
         
-        btn_signup.BackColor = Color.LightGreen;
-        return true;    
     }
-    private void txtBox_username_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
-    private void txtBox_email_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
-    private void txtBox_password_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
-    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { SignupValidationFeedback();}
-    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e) { SignupValidationFeedback(); }
+
+    private void txtBox_email_TextChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void txtBox_password_TextChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
+    {
+        
+    } 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
     private void btn_loginForm_Click(object sender, EventArgs e) { Hide(); Auth_login x = new Auth_login(); x.Show(); }
     private void btn_forgotPassword_Click(object sender, EventArgs e) { ResetPassword x = new ResetPassword(); x.Show(); }
