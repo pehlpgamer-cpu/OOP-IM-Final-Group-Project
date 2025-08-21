@@ -43,19 +43,30 @@ public partial class Auth_registration : Form
     
     private void txtBox_username_TextChanged(object sender, EventArgs e)
     {
-        //Regex regex = new Regex(VALID_USERNAME_CHARS);
+        label_usernameInvalidInput.Visible = false;
         
-        if (txtBox_username.Text.Trim().Length >= MAXIMUM_USERNAME_LENGTH)
+        //Username
+        if (txtBox_username.Text.Trim() == string.Empty)
         {
             validUsername = false;
-            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters";
+            label_usernameInvalidInput.Text = "This field is required.";
+        }
+        else if (txtBox_username.Text.Trim().Length >= MAXIMUM_USERNAME_LENGTH)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters.";
         }
 
-        if (txtBox_username.Text.Trim().Length <= MINIMUM_USERNAME_LENGTH)
+        else if (txtBox_username.Text.Trim().Length <= MAXIMUM_USERNAME_LENGTH)
         {
             validUsername = false;
-            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters";
+            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters.";
         }
+        else
+        {
+            validUsername = true;
+        }
+        //email
     }
     
 

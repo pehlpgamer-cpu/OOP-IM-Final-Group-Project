@@ -210,6 +210,7 @@ partial class Auth_registration
         label_usernameInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_usernameInvalidInput.TabIndex = 13;
         label_usernameInvalidInput.Text = "label1";
+        label_usernameInvalidInput.Visible = false;
         // 
         // label_emailInvalidInput
         // 
