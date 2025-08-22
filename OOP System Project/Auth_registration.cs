@@ -17,10 +17,44 @@ public partial class Auth_registration : Form
     private bool validEmail;
     private bool validPassword;
     private bool validConfirmPassword;
-    
+
+    void validateInput()
+    {
+        label_usernameInvalidInput.Visible = false;
+        
+        //Username
+        if (txtBox_username.Text.Trim() == string.Empty)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Visible = true;
+            label_usernameInvalidInput.Text = "This field is required.";
+        }
+        else if (txtBox_username.Text.Trim().Length > MAXIMUM_USERNAME_LENGTH)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Visible = true;
+            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters.";
+        }
+
+        else if (txtBox_username.Text.Trim().Length < MINIMUM_USERNAME_LENGTH)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Visible = true;
+            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters.";
+        }
+        else { validUsername = true; }
+        
+        //email
+        if (txtBox_email.Text.Trim() == string.Empty)
+        {
+            
+        }
+        
+        
+        //password
+    }
     public Auth_registration()
     {
-        
         InitializeComponent();
         //using var con = new MySqlConnection(Global.cs);
         //con.Open();
@@ -42,42 +76,19 @@ public partial class Auth_registration : Form
     }
     
     private void txtBox_username_TextChanged(object sender, EventArgs e)
-    {
-        label_usernameInvalidInput.Visible = false;
+    { 
         
-        //Username
-        if (txtBox_username.Text.Trim() == string.Empty)
-        {
-            validUsername = false;
-            label_usernameInvalidInput.Text = "This field is required.";
-        }
-        else if (txtBox_username.Text.Trim().Length >= MAXIMUM_USERNAME_LENGTH)
-        {
-            validUsername = false;
-            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters.";
-        }
-
-        else if (txtBox_username.Text.Trim().Length <= MAXIMUM_USERNAME_LENGTH)
-        {
-            validUsername = false;
-            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters.";
-        }
-        else
-        {
-            validUsername = true;
-        }
-        //email
     }
     
 
     private void txtBox_email_TextChanged(object sender, EventArgs e)
     {
-        
+        validateInput();
     }
 
     private void txtBox_password_TextChanged(object sender, EventArgs e)
     {
-        
+        validateInput();
     }
 
     private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e)
