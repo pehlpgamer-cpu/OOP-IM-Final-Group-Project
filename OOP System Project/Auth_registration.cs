@@ -21,6 +21,9 @@ public partial class Auth_registration : Form
     void validateInput()
     {
         label_usernameInvalidInput.Visible = false;
+        label_emailInvalidInput.Visible = false;
+        label_passwordInvalidInput.Visible = false;
+        label_confirmPasswordInvalidInput.Visible = false;
         
         //Username
         if (txtBox_username.Text.Trim() == string.Empty)
@@ -47,11 +50,34 @@ public partial class Auth_registration : Form
         //email
         if (txtBox_email.Text.Trim() == string.Empty)
         {
-            
+            validEmail = false;
+            label_emailInvalidInput.Visible = true;
+            label_emailInvalidInput.Text = "This field is required.";
         }
+        else { validEmail = true; }
         
         
         //password
+
+        if (txtBox_password.Text.Trim() == string.Empty)
+        {
+            validPassword = false;
+            label_passwordInvalidInput.Visible = true;
+            label_emailInvalidInput.Text = "This field is required.";
+        }
+        else if (txtBox_password.Text.Trim().Length > MAXIMUM_PASSWORD_LENGTH)
+        {
+            validPassword = false;
+            label_passwordInvalidInput.Visible = true;
+            label_passwordInvalidInput.Text = "Password can only be a maximum of 64 characters.";
+        }
+        else if (txtBox_password.Text.Trim().Length < MINIMUM_PASSWORD_LENGTH)
+        {
+            validPassword = false;
+            label_passwordInvalidInput.Visible = true;
+            label_passwordInvalidInput.Text = "Password can only be a minimum of 18 characters.";
+        }
+        else { validPassword = true; }
     }
     public Auth_registration()
     {
@@ -77,7 +103,7 @@ public partial class Auth_registration : Form
     
     private void txtBox_username_TextChanged(object sender, EventArgs e)
     { 
-        
+        validateInput();
     }
     
 

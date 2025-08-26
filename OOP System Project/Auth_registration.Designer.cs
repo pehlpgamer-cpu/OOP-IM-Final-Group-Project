@@ -88,6 +88,7 @@ partial class Auth_registration
         // 
         txtBox_password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
         txtBox_password.Location = new System.Drawing.Point(34, 162);
+        txtBox_password.MaxLength = 64;
         txtBox_password.Name = "txtBox_password";
         txtBox_password.PasswordChar = '*';
         txtBox_password.PlaceholderText = "password";
