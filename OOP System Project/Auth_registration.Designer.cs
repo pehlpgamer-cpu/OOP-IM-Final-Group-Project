@@ -224,6 +224,7 @@ partial class Auth_registration
         label_emailInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_emailInvalidInput.TabIndex = 14;
         label_emailInvalidInput.Text = "label2";
+        label_emailInvalidInput.Visible = false;
         // 
         // label_passwordInvalidInput
         // 
@@ -236,6 +237,7 @@ partial class Auth_registration
         label_passwordInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_passwordInvalidInput.TabIndex = 15;
         label_passwordInvalidInput.Text = "label3";
+        label_passwordInvalidInput.Visible = false;
         // 
         // label_confirmPasswordInvalidInput
         // 
@@ -248,6 +250,7 @@ partial class Auth_registration
         label_confirmPasswordInvalidInput.Size = new System.Drawing.Size(55, 23);
         label_confirmPasswordInvalidInput.TabIndex = 16;
         label_confirmPasswordInvalidInput.Text = "label4";
+        label_confirmPasswordInvalidInput.Visible = false;
         // 
         // Auth_registration
         // 

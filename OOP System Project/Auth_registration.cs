@@ -26,7 +26,7 @@ public partial class Auth_registration : Form
         label_confirmPasswordInvalidInput.Visible = false;
         
         //Username
-        if (txtBox_username.Text.Trim() == string.Empty)
+        if (string.IsNullOrWhiteSpace(txtBox_username.Text))
         {
             validUsername = false;
             label_usernameInvalidInput.Visible = true;
@@ -36,19 +36,19 @@ public partial class Auth_registration : Form
         {
             validUsername = false;
             label_usernameInvalidInput.Visible = true;
-            label_usernameInvalidInput.Text = "Username can only be a maximum of 20 characters.";
+            label_usernameInvalidInput.Text = $"Username can only be a maximum of {MAXIMUM_USERNAME_LENGTH} characters.";
         }
 
         else if (txtBox_username.Text.Trim().Length < MINIMUM_USERNAME_LENGTH)
         {
             validUsername = false;
             label_usernameInvalidInput.Visible = true;
-            label_usernameInvalidInput.Text = "Username can only be a minimum of 8 characters.";
+            label_usernameInvalidInput.Text = $"Username can only be a minimum of {MINIMUM_USERNAME_LENGTH} characters.";
         }
         else { validUsername = true; }
         
         //email
-        if (txtBox_email.Text.Trim() == string.Empty)
+        if (string.IsNullOrWhiteSpace(txtBox_email.Text))
         {
             validEmail = false;
             label_emailInvalidInput.Visible = true;
@@ -59,25 +59,39 @@ public partial class Auth_registration : Form
         
         //password
 
-        if (txtBox_password.Text.Trim() == string.Empty)
+        if (string.IsNullOrWhiteSpace(txtBox_password.Text))
         {
             validPassword = false;
             label_passwordInvalidInput.Visible = true;
-            label_emailInvalidInput.Text = "This field is required.";
+            label_passwordInvalidInput.Text = "This field is required.";
         }
         else if (txtBox_password.Text.Trim().Length > MAXIMUM_PASSWORD_LENGTH)
         {
             validPassword = false;
             label_passwordInvalidInput.Visible = true;
-            label_passwordInvalidInput.Text = "Password can only be a maximum of 64 characters.";
+            label_passwordInvalidInput.Text = $"Password can only be a maximum of {MAXIMUM_PASSWORD_LENGTH} characters.";
         }
         else if (txtBox_password.Text.Trim().Length < MINIMUM_PASSWORD_LENGTH)
         {
             validPassword = false;
             label_passwordInvalidInput.Visible = true;
-            label_passwordInvalidInput.Text = "Password can only be a minimum of 18 characters.";
+            label_passwordInvalidInput.Text = $"Password can only be a minimum of {MINIMUM_PASSWORD_LENGTH} characters.";
         }
         else { validPassword = true; }
+
+        if (string.IsNullOrWhiteSpace(txtBox_confirmPassword.Text))
+        {
+            validConfirmPassword = false;
+            label_confirmPasswordInvalidInput.Visible = true;
+            label_confirmPasswordInvalidInput.Text = "This field is required.";
+        }
+        else if (txtBox_password.Text.Trim() != txtBox_confirmPassword.Text.Trim())
+        {
+            validConfirmPassword = false;
+            label_confirmPasswordInvalidInput.Visible = true;
+            label_confirmPasswordInvalidInput.Text = $"Passwords do not match.";
+        }
+        else { validConfirmPassword = true; }
     }
     public Auth_registration()
     {
