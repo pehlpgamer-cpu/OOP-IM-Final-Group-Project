@@ -58,6 +58,7 @@ partial class Auth_registration
         txtBox_username.Size = new System.Drawing.Size(418, 34);
         txtBox_username.TabIndex = 0;
         txtBox_username.TextChanged += txtBox_username_TextChanged;
+        txtBox_username.KeyPress += txtBox_username_KeyPress;
         txtBox_username.Leave += txtBox_username_Leave;
         // 
         // btn_signup
@@ -83,6 +84,7 @@ partial class Auth_registration
         txtBox_email.Size = new System.Drawing.Size(418, 34);
         txtBox_email.TabIndex = 2;
         txtBox_email.TextChanged += txtBox_email_TextChanged;
+        txtBox_email.KeyPress += txtBox_email_KeyPress;
         txtBox_email.Leave += txtBox_email_Leave;
         // 
         // txtBox_password
@@ -96,6 +98,7 @@ partial class Auth_registration
         txtBox_password.Size = new System.Drawing.Size(303, 34);
         txtBox_password.TabIndex = 3;
         txtBox_password.TextChanged += txtBox_password_TextChanged;
+        txtBox_password.KeyPress += txtBox_password_KeyPress;
         txtBox_password.Leave += txtBox_password_Leave;
         // 
         // txtBox_confirmPassword
@@ -108,6 +111,7 @@ partial class Auth_registration
         txtBox_confirmPassword.Size = new System.Drawing.Size(352, 34);
         txtBox_confirmPassword.TabIndex = 4;
         txtBox_confirmPassword.TextChanged += txtBox_confirmPassword_TextChanged;
+        txtBox_confirmPassword.KeyPress += txtBox_confirmPassword_KeyPress;
         txtBox_confirmPassword.Leave += txtBox_confirmPassword_Leave;
         // 
         // btn_generatePassword
@@ -158,7 +162,6 @@ partial class Auth_registration
         checkBox_termsAndAgreements.TabIndex = 9;
         checkBox_termsAndAgreements.Text = "Do you agree with the terms and conditions?";
         checkBox_termsAndAgreements.UseVisualStyleBackColor = true;
-        checkBox_termsAndAgreements.CheckedChanged += checkBox_termsAndAgreements_CheckedChanged;
         // 
         // btn_termsAndConditionsForm
         // 

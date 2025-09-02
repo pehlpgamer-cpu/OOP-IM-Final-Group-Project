@@ -132,16 +132,6 @@ public partial class Auth_registration : Form
         string password = txtBox_password.Text;
         string hashedPassword = hasher.HashPassword(password);
         Console.WriteLine($"Hashed Password: {hashedPassword}");
-
-        // Verify the password
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        
         
 
     }
@@ -171,11 +161,8 @@ public partial class Auth_registration : Form
     private void txtBox_email_Leave(object sender, EventArgs e) { txtBox_email.Text = txtBox_email.Text.Trim(); }
     private void txtBox_password_Leave(object sender, EventArgs e) { txtBox_password.Text = txtBox_password.Text.Trim(); }
     private void txtBox_confirmPassword_Leave(object sender, EventArgs e) { txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim(); }
-    private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
-    {
-        
-    } 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
     private void btn_loginForm_Click(object sender, EventArgs e) { Hide(); Auth_login x = new Auth_login(); x.Show(); }
     private void btn_forgotPassword_Click(object sender, EventArgs e) { ResetPassword x = new ResetPassword(); x.Show(); }
@@ -205,5 +192,24 @@ public partial class Auth_registration : Form
     }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    
+
+private void txtBox_username_KeyPress(object sender, KeyPressEventArgs e)
+{
+    signup();
+}
+
+private void txtBox_email_KeyPress(object sender, KeyPressEventArgs e)
+{
+    signup();
+}
+
+private void txtBox_password_KeyPress(object sender, KeyPressEventArgs e)
+{
+    signup();
+}
+
+private void txtBox_confirmPassword_KeyPress(object sender, KeyPressEventArgs e)
+{
+    signup();
+}
 }
