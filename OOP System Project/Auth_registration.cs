@@ -5,19 +5,21 @@ namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
 {
+    
     const int MINIMUM_PASSWORD_LENGTH = 18;
     const int MAXIMUM_PASSWORD_LENGTH = 64;
     const int MINIMUM_USERNAME_LENGTH = 8;
     const int MAXIMUM_USERNAME_LENGTH = 20;
-    const string VALID_USERNAME_CHARS = @"^[a-zA-Z0-9_]+$";
+    //const string VALID_USERNAME_CHARS = @"^[a-zA-Z0-9_]+$";
     const string VALID_EMAIL_FORMAT = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
-    const string VALID_PASSWORD_CHARS = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
-
+    //const string VALID_PASSWORD_CHARS = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
     private bool validUsername;
     private bool validEmail;
     private bool validPassword;
     private bool validConfirmPassword;
 
+    private Regex rg_emailFormat = new Regex(VALID_EMAIL_FORMAT);
+        
     void validateInput()
     {
         label_usernameInvalidInput.Visible = false;
@@ -54,11 +56,15 @@ public partial class Auth_registration : Form
             label_emailInvalidInput.Visible = true;
             label_emailInvalidInput.Text = "This field is required.";
         }
+        else if (!rg_emailFormat.IsMatch(txtBox_email.Text))
+        {
+            validEmail = false;
+            label_emailInvalidInput.Visible = true;
+            label_emailInvalidInput.Text = "Invalid email format.";
+        }
         else { validEmail = true; }
         
-        
         //password
-
         if (string.IsNullOrWhiteSpace(txtBox_password.Text))
         {
             validPassword = false;
@@ -78,7 +84,8 @@ public partial class Auth_registration : Form
             label_passwordInvalidInput.Text = $"Password can only be a minimum of {MINIMUM_PASSWORD_LENGTH} characters.";
         }
         else { validPassword = true; }
-
+        
+        //Confirm Password
         if (string.IsNullOrWhiteSpace(txtBox_confirmPassword.Text))
         {
             validConfirmPassword = false;
@@ -111,6 +118,8 @@ public partial class Auth_registration : Form
         InitializeComponent();
         //using var con = new MySqlConnection(Global.cs);
         //con.Open();
+        
+        
     }
     
     
