@@ -62,6 +62,7 @@ partial class Auth_registration
         // 
         // btn_signup
         // 
+        btn_signup.Enabled = false;
         btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_signup.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_signup.ForeColor = System.Drawing.SystemColors.ControlText;

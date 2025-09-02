@@ -92,6 +92,16 @@ public partial class Auth_registration : Form
             label_confirmPasswordInvalidInput.Text = $"Passwords do not match.";
         }
         else { validConfirmPassword = true; }
+
+        if (validUsername && validEmail && validPassword &&
+            validConfirmPassword && checkBox_termsAndAgreements.Checked)
+        {
+            btn_signup.BackColor = Color.LightGreen;
+        }
+        else
+        {
+            btn_signup.Enabled = false;
+        }
     }
     public Auth_registration()
     {
