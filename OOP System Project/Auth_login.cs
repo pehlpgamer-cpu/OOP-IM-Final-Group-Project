@@ -28,9 +28,23 @@ public partial class Auth_login : Form
     {
         if (txtBox_username.Text == string.Empty && txtBox_password.Text == string.Empty) {
             MessageBox.Show("Please enter username and password");
-            return;
+            return; 
         }
         MessageBox.Show("Login Successfull");
+    }
+
+    void login()
+    {
+        var hasher = new PasswordHasher();
+
+        // Hash a password
+        string password = "MySecurePassword123!";
+        string hashedPassword = hasher.HashPassword(password);
+        Console.WriteLine($"Hashed Password: {hashedPassword}");
+
+        // Verify the password
+        bool isValid = hasher.VerifyPassword(password, hashedPassword);
+        Console.WriteLine($"Password is valid: {isValid}");
     }
 
     private void btn_signupForm_Click(object sender, EventArgs e)
