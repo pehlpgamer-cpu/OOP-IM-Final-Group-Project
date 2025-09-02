@@ -161,36 +161,16 @@ public partial class Auth_registration : Form
     {
         
     }
+    private void txtBox_username_TextChanged(object sender, EventArgs e) { validateInput(); }
+    private void txtBox_email_TextChanged(object sender, EventArgs e) { validateInput(); }
+    private void txtBox_password_TextChanged(object sender, EventArgs e) { validateInput(); }
+    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { validateInput(); }
     
-    private void txtBox_username_TextChanged(object sender, EventArgs e)
-    { 
-        validateInput();
-    }
-    
-
-    private void txtBox_email_TextChanged(object sender, EventArgs e)
-    {
-        validateInput();
-    }
-
-    private void txtBox_password_TextChanged(object sender, EventArgs e)
-    {
-        validateInput();
-    }
-
-    private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e)
-    {
-        if (txtBox_password.Text.Trim() != txtBox_confirmPassword.Text.Trim())
-        {
-            label_confirmPasswordInvalidInput.Text = "Passwords do not match";
-        }
-    }
     //Trim() textboxes
     private void txtBox_username_Leave(object sender, EventArgs e) { txtBox_username.Text = txtBox_username.Text.Trim(); }
     private void txtBox_email_Leave(object sender, EventArgs e) { txtBox_email.Text = txtBox_email.Text.Trim(); }
     private void txtBox_password_Leave(object sender, EventArgs e) { txtBox_password.Text = txtBox_password.Text.Trim(); }
     private void txtBox_confirmPassword_Leave(object sender, EventArgs e) { txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim(); }
-    
     private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
     {
         
