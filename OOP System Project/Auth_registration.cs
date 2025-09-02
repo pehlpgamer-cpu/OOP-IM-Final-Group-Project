@@ -93,13 +93,16 @@ public partial class Auth_registration : Form
         }
         else { validConfirmPassword = true; }
 
+        //BTN
         if (validUsername && validEmail && validPassword &&
             validConfirmPassword && checkBox_termsAndAgreements.Checked)
         {
             btn_signup.BackColor = Color.LightGreen;
+            btn_signup.Enabled = true;
         }
         else
         {
+            btn_signup.BackColor = SystemColors.Control;
             btn_signup.Enabled = false;
         }
     }
@@ -113,15 +116,6 @@ public partial class Auth_registration : Form
     
     private void btn_signup_Click(object sender, EventArgs e)
     {
-        
-        //username input
-        //fetch from DB - username
-        //if exist it or not
-        
-        //email input
-        //fetch from DB - email
-        //if exist it or not
-        
         
     }
     
@@ -164,20 +158,29 @@ public partial class Auth_registration : Form
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
     private void btn_loginForm_Click(object sender, EventArgs e) { Hide(); Auth_login x = new Auth_login(); x.Show(); }
     private void btn_forgotPassword_Click(object sender, EventArgs e) { ResetPassword x = new ResetPassword(); x.Show(); }
-    private void btn_passwordVisibility_Click(object sender, EventArgs e) 
-    { if (txtBox_password.PasswordChar == '*') { txtBox_password.PasswordChar = '\0'; btn_passwordVisibility.Text = "hide"; }
+    private void btn_passwordVisibility_Click(object sender, EventArgs e) { 
+        if (txtBox_password.PasswordChar == '*') { txtBox_password.PasswordChar = '\0'; btn_passwordVisibility.Text = "hide"; }
         else { txtBox_password.PasswordChar = '*'; btn_passwordVisibility.Text = "view"; } }
-    private void btn_confirmPasswordVisibility_Click(object sender, EventArgs e) 
-    { if (txtBox_confirmPassword.PasswordChar == '*') { txtBox_confirmPassword.PasswordChar = '\0'; btn_confirmPasswordVisibility.Text = "hide"; }
+    private void btn_confirmPasswordVisibility_Click(object sender, EventArgs e) {
+        if (txtBox_confirmPassword.PasswordChar == '*') { txtBox_confirmPassword.PasswordChar = '\0'; btn_confirmPasswordVisibility.Text = "hide"; }
         else { txtBox_confirmPassword.PasswordChar = '*'; btn_confirmPasswordVisibility.Text = "view"; } }
 
     private void btn_generatePassword_Click(object sender, EventArgs e)
     {
+        string[] chars = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+                          "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+                          "1","2","3","4","5","6","7","8","9","0","_","-",".",",","!","&","*"};
         Random rnd = new Random();
+        string generatedPassword = string.Empty;
+        for (int i  = 0; i < MAXIMUM_PASSWORD_LENGTH; i++) 
+            generatedPassword += chars[rnd.Next(0, chars.Length)];
         
+        txtBox_password.Text = generatedPassword;
+        txtBox_confirmPassword.Text = generatedPassword;
+        Clipboard.SetText(generatedPassword);
+        validateInput();
+        //Console.WriteLine(generatedPassword);
 
     }
-
-
     
 }

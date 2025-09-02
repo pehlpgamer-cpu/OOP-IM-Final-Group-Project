@@ -115,7 +115,7 @@ partial class Auth_registration
         btn_generatePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_generatePassword.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_generatePassword.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_generatePassword.Location = new System.Drawing.Point(343, 164);
+        btn_generatePassword.Location = new System.Drawing.Point(343, 162);
         btn_generatePassword.Name = "btn_generatePassword";
         btn_generatePassword.Size = new System.Drawing.Size(43, 34);
         btn_generatePassword.TabIndex = 5;
@@ -128,7 +128,7 @@ partial class Auth_registration
         btn_confirmPasswordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_confirmPasswordVisibility.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_confirmPasswordVisibility.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_confirmPasswordVisibility.Location = new System.Drawing.Point(392, 161);
+        btn_confirmPasswordVisibility.Location = new System.Drawing.Point(392, 225);
         btn_confirmPasswordVisibility.Name = "btn_confirmPasswordVisibility";
         btn_confirmPasswordVisibility.Size = new System.Drawing.Size(60, 34);
         btn_confirmPasswordVisibility.TabIndex = 7;
@@ -141,7 +141,7 @@ partial class Auth_registration
         btn_passwordVisibility.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         btn_passwordVisibility.Font = new System.Drawing.Font("Segoe UI", 10F);
         btn_passwordVisibility.ForeColor = System.Drawing.SystemColors.ControlText;
-        btn_passwordVisibility.Location = new System.Drawing.Point(392, 227);
+        btn_passwordVisibility.Location = new System.Drawing.Point(392, 162);
         btn_passwordVisibility.Name = "btn_passwordVisibility";
         btn_passwordVisibility.Size = new System.Drawing.Size(60, 34);
         btn_passwordVisibility.TabIndex = 8;
