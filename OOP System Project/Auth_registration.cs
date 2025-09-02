@@ -195,21 +195,21 @@ public partial class Auth_registration : Form
 
 private void txtBox_username_KeyPress(object sender, KeyPressEventArgs e)
 {
-    signup();
+    if (e.KeyChar == (char)Keys.Enter) signup();
 }
 
 private void txtBox_email_KeyPress(object sender, KeyPressEventArgs e)
 {
-    signup();
+    if (e.KeyChar == (char)Keys.Enter) signup();
 }
 
 private void txtBox_password_KeyPress(object sender, KeyPressEventArgs e)
 {
-    signup();
+    if (e.KeyChar == (char)Keys.Enter) signup();
 }
 
 private void txtBox_confirmPassword_KeyPress(object sender, KeyPressEventArgs e)
 {
-    signup();
+    if (e.KeyChar == (char)Keys.Enter) signup();
 }
 }
