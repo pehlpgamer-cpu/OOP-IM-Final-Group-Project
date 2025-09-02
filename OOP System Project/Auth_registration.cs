@@ -179,6 +179,7 @@ public partial class Auth_registration : Form
                           "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
                           "1","2","3","4","5","6","7","8","9","0","_","-",".",",","!","&","*"};
         Random rnd = new Random();
+        
         string generatedPassword = string.Empty;
         for (int i  = 0; i < MAXIMUM_PASSWORD_LENGTH; i++) 
             generatedPassword += chars[rnd.Next(0, chars.Length)];

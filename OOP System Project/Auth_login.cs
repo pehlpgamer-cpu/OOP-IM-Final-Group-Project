@@ -12,6 +12,7 @@ public partial class Auth_login : Form
         if (txtBox_username.Text == string.Empty || txtBox_password.Text == string.Empty) btn_login.BackColor = Color.WhiteSmoke;
         else btn_login.BackColor = Color.LightGreen;
         
+        
     }
 
     private void txtBox_password_TextChanged(object sender, EventArgs e)
@@ -30,7 +31,7 @@ public partial class Auth_login : Form
             MessageBox.Show("Please enter username and password");
             return; 
         }
-        MessageBox.Show("Login Successfull");
+        MessageBox.Show("Login Successful");
     }
 
     void login()
@@ -40,11 +41,13 @@ public partial class Auth_login : Form
         // Hash a password
         string password = "MySecurePassword123!";
         string hashedPassword = hasher.HashPassword(password);
-        Console.WriteLine($"Hashed Password: {hashedPassword}");
-
+        
+        //get pass from db
+        string hashedPassFromDb = "dsf";
+        string hashedPassword2 = hasher.HashPassword(hashedPassword);
+        
         // Verify the password
-        bool isValid = hasher.VerifyPassword(password, hashedPassword);
-        Console.WriteLine($"Password is valid: {isValid}");
+        
     }
 
     private void btn_signupForm_Click(object sender, EventArgs e)
