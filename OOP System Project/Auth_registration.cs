@@ -1,6 +1,10 @@
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
+using System;
+using System.Security.Cryptography;
+using System.Text;
+using Konscious.Security.Cryptography;
 namespace OOP_System_Project;
 
 public partial class Auth_registration : Form
@@ -47,6 +51,12 @@ public partial class Auth_registration : Form
             label_usernameInvalidInput.Visible = true;
             label_usernameInvalidInput.Text = $"Username can only be a minimum of {MINIMUM_USERNAME_LENGTH} characters.";
         }
+        /*else if (usernameExist)
+        {
+            validUsername = false;
+            label_usernameInvalidInput.Visible = true;
+            label_usernameInvalidInput.Text = $"{txtBox_username.Text} already exists.";
+        }*/
         else { validUsername = true; }
         
         //email
@@ -113,6 +123,30 @@ public partial class Auth_registration : Form
             btn_signup.Enabled = false;
         }
     }
+
+    void signup()
+    {
+        var hasher = new PasswordHasher();
+
+        // Hash a password
+        string password = txtBox_password.Text;
+        string hashedPassword = hasher.HashPassword(password);
+        Console.WriteLine($"Hashed Password: {hashedPassword}");
+
+        // Verify the password
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        
+        
+
+    }
+    
+    
     public Auth_registration()
     {
         InitializeComponent();
@@ -157,13 +191,11 @@ public partial class Auth_registration : Form
     private void txtBox_password_Leave(object sender, EventArgs e) { txtBox_password.Text = txtBox_password.Text.Trim(); }
     private void txtBox_confirmPassword_Leave(object sender, EventArgs e) { txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim(); }
     
-    
-
     private void checkBox_termsAndAgreements_CheckedChanged(object sender, EventArgs e)
     {
         
     } 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
     private void btn_loginForm_Click(object sender, EventArgs e) { Hide(); Auth_login x = new Auth_login(); x.Show(); }
     private void btn_forgotPassword_Click(object sender, EventArgs e) { ResetPassword x = new ResetPassword(); x.Show(); }
@@ -191,5 +223,66 @@ public partial class Auth_registration : Form
         //Console.WriteLine(generatedPassword);
 
     }
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class PasswordHasher
+{
+    private const int SaltSize = 16; // 128 bits
+    private const int HashSize = 32; // 256 bits
+    private const int DegreeOfParallelism = 1; // Number of threads to use
+    private const int Iterations = 2; // Number of iterations
+    private const int MemorySize = 128 * 128; // 1024 * 1024 = 1GB
+
+    public string HashPassword(string password)
+    {
+        // Generate a random salt
+        byte[] salt = new byte[SaltSize];
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(salt);
+        }
+        // Create hash
+        byte[] hash = HashPassword(password, salt);
+
+        // Combine salt and hash
+        var combinedBytes = new byte[salt.Length + hash.Length];
+        Array.Copy(salt, 0, combinedBytes, 0, salt.Length);
+        Array.Copy(hash, 0, combinedBytes, salt.Length, hash.Length);
+
+        // Convert to base64 for storage
+        return Convert.ToBase64String(combinedBytes);
+    }
+
+    private byte[] HashPassword(string password, byte[] salt)
+    {
+        var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
+        {
+            Salt = salt,
+            DegreeOfParallelism = DegreeOfParallelism,
+            Iterations = Iterations,
+            MemorySize = MemorySize
+        };
+
+        return argon2.GetBytes(HashSize);
+    }
+
+    public bool VerifyPassword(string password, string hashedPassword)
+    {
+        // Decode the stored hash
+        byte[] combinedBytes = Convert.FromBase64String(hashedPassword);
+
+        // Extract salt and hash
+        byte[] salt = new byte[SaltSize];
+        byte[] hash = new byte[HashSize];
+        Array.Copy(combinedBytes, 0, salt, 0, SaltSize);
+        Array.Copy(combinedBytes, SaltSize, hash, 0, HashSize);
+
+        // Compute hash for the input password
+        byte[] newHash = HashPassword(password, salt);
+
+        // Compare the hashes
+        return CryptographicOperations.FixedTimeEquals(hash, newHash);
+    }
+}
+
     
 }
