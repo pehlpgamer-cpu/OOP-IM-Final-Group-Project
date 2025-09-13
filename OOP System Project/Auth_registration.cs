@@ -10,11 +10,11 @@ namespace OOP_System_Project;
 public partial class Auth_registration : Form
 {
     
-    const int MINIMUM_PASSWORD_LENGTH = 18;
-    const int MAXIMUM_PASSWORD_LENGTH = 64;
-    const int MINIMUM_USERNAME_LENGTH = 8;
-    const int MAXIMUM_USERNAME_LENGTH = 20;
-    //const string VALID_USERNAME_CHARS = @"^[a-zA-Z0-9_]+$";
+    private const int MINIMUM_PASSWORD_LENGTH = 18;
+    private const int MAXIMUM_PASSWORD_LENGTH = 64;
+    private const int MINIMUM_USERNAME_LENGTH = 8;
+    private const int MAXIMUM_USERNAME_LENGTH = 20;
+    //const string VALID_USERNAME_CHARS = @"^[a-zA-Z0-9_]+$"; 
     const string VALID_EMAIL_FORMAT = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
     //const string VALID_PASSWORD_CHARS = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
     private bool validUsername;
@@ -112,13 +112,12 @@ public partial class Auth_registration : Form
 
         //BTN
         if (validUsername && validEmail && validPassword &&
-            validConfirmPassword && checkBox_termsAndAgreements.Checked)
+            validConfirmPassword && checkBox_termsAndAgreements.Checked) 
         {
             btn_signup.BackColor = Color.LightGreen;
             btn_signup.Enabled = true;
         }
-        else
-        {
+        else {
             btn_signup.BackColor = SystemColors.Control;
             btn_signup.Enabled = false;
         }
@@ -156,11 +155,29 @@ public partial class Auth_registration : Form
     private void txtBox_password_TextChanged(object sender, EventArgs e) { validateInput(); }
     private void txtBox_confirmPassword_TextChanged(object sender, EventArgs e) { validateInput(); }
     
-    //Trim() textboxes
-    private void txtBox_username_Leave(object sender, EventArgs e) { txtBox_username.Text = txtBox_username.Text.Trim(); }
-    private void txtBox_email_Leave(object sender, EventArgs e) { txtBox_email.Text = txtBox_email.Text.Trim(); }
-    private void txtBox_password_Leave(object sender, EventArgs e) { txtBox_password.Text = txtBox_password.Text.Trim(); }
-    private void txtBox_confirmPassword_Leave(object sender, EventArgs e) { txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim(); }
+    //Trim() and cut excess chars 
+    private void txtBox_username_Leave(object sender, EventArgs e)
+    {
+        txtBox_username.Text = txtBox_username.Text.Trim();
+        if (txtBox_username.Text.Length > MAXIMUM_USERNAME_LENGTH)
+            txtBox_username.Text.Substring(0,MAXIMUM_USERNAME_LENGTH);
+    }
+
+    private void txtBox_email_Leave(object sender, EventArgs e) {
+        txtBox_email.Text = txtBox_email.Text.Trim();
+    }
+
+    private void txtBox_password_Leave(object sender, EventArgs e) {
+        txtBox_password.Text = txtBox_password.Text.Trim();
+            if(txtBox_password.Text.Length > MAXIMUM_PASSWORD_LENGTH) 
+                txtBox_password.Text.Substring(0,MAXIMUM_PASSWORD_LENGTH);
+    }
+
+    private void txtBox_confirmPassword_Leave(object sender, EventArgs e) {
+        txtBox_confirmPassword.Text = txtBox_confirmPassword.Text.Trim();
+        if (txtBox_confirmPassword.Text.Length > MAXIMUM_USERNAME_LENGTH)
+            txtBox_confirmPassword.Text.Substring(0,MAXIMUM_PASSWORD_LENGTH);
+    }
 
     //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private void btn_termsAndConditionsForm_Click(object sender, EventArgs e) { TermsAndConditions x = new TermsAndConditions(); x.Show(); }
@@ -175,18 +192,19 @@ public partial class Auth_registration : Form
 
     private void btn_generatePassword_Click(object sender, EventArgs e)
     {
-        string[] chars = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-                          "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-                          "1","2","3","4","5","6","7","8","9","0","_","-",".",",","!","&","*"};
+        string[] chars = [
+            "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+            "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+            "1","2","3","4","5","6","7","8","9","0",
+            "_","-",".",",","!","&","*"];
         Random rnd = new Random();
-        
         string generatedPassword = string.Empty;
         for (int i  = 0; i < MAXIMUM_PASSWORD_LENGTH; i++) 
             generatedPassword += chars[rnd.Next(0, chars.Length)];
         
         txtBox_password.Text = generatedPassword;
         txtBox_confirmPassword.Text = generatedPassword;
-        Clipboard.SetText(generatedPassword);
+        //Clipboard.SetText(generatedPassword);
         validateInput();
         //Console.WriteLine(generatedPassword);
 
