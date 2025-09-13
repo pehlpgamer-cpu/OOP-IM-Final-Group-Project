@@ -6,10 +6,15 @@ using System.Security.Cryptography;
 using System.Text;
 using Konscious.Security.Cryptography;
 namespace OOP_System_Project;
-
+using MySql.Data.MySqlClient;
 public partial class Auth_registration : Form
 {
-    
+    public Auth_registration()
+    {
+        InitializeComponent();
+        
+        
+    }
     private const int MINIMUM_PASSWORD_LENGTH = 18;
     private const int MAXIMUM_PASSWORD_LENGTH = 64;
     private const int MINIMUM_USERNAME_LENGTH = 8;
@@ -136,14 +141,7 @@ public partial class Auth_registration : Form
     }
     
     
-    public Auth_registration()
-    {
-        InitializeComponent();
-        //using var con = new MySqlConnection(Global.cs);
-        //con.Open();
-        
-        
-    }
+    
     
     
     private void btn_signup_Click(object sender, EventArgs e)
