@@ -13,7 +13,7 @@ public partial class Auth_registration : Form
     {
         InitializeComponent();
         
-        
+
     }
     private const int MINIMUM_PASSWORD_LENGTH = 18;
     private const int MAXIMUM_PASSWORD_LENGTH = 64;

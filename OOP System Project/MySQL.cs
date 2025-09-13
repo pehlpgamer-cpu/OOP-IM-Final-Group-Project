@@ -4,10 +4,11 @@ namespace OOP_System_Project;
 public class DatabaseConnection
 {
     private static readonly string server = "localhost";
-    private static readonly string database = "OOP_System_Project";
-    private static readonly string user_id = "root";
+    private static readonly string database = "oop_finalproject";
+    private static readonly string userid = "root";
     private static readonly string password = "root";
-    private static readonly string Cs = $"server={server};database={database};uid={user_id};pwd={password}";
+    private static readonly string Cs = $@"server={server};database={database};userid={userid};password={password}";
+    //@"server=localhost;userid=dbuser;password=s$cret;database=testdb";
     protected MySqlConnection connection = new (Cs);
 
     protected DatabaseConnection()
@@ -16,10 +17,11 @@ public class DatabaseConnection
     }
 }
 
-public class Crud : DatabaseConnection
+public class mySqlCrud : DatabaseConnection
 {
-    void checkUsername()
+    public void checkUsername()
     {
+        Console.WriteLine(connection.State.ToString());
         var stm = "SELECT VERSION()";
         var cmd = new MySqlCommand(stm, connection);
 
