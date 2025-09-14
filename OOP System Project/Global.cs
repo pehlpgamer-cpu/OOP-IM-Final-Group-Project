@@ -16,8 +16,9 @@ public class Global
 
 public class PasswordHasher
 {
-    private const int SaltSize = 16; // 128 bits
-    private const int HashSize = 32; // 256 bits
+    // https://www.thatsoftwaredude.com/content/14030/implementing-argon2id-password-hashing-in-c
+    private const int SaltSize = 16; 
+    private const int HashSize = 32; 
     private const int DegreeOfParallelism = 1; // Number of threads to use
     private const int Iterations = 2; // Number of iterations
     private const int MemorySize = 128 * 128; // 1024 * 1024 = 1GB
