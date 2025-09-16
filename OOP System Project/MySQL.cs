@@ -12,17 +12,13 @@ public class DatabaseConnection
     private static readonly string database = "oop_finalproject";
     private static readonly string Cs = $"server={server};userid={userid};password={password};database={database}";
     protected MySqlConnection connection = new (Cs);
-
-    protected DatabaseConnection()
-    {
-        connection.Open();
-    }
 }
 
 public class mySqlCrud : DatabaseConnection
 {
     public void checkUsername()
     {
+        connection.Open();
         Console.WriteLine(connection.State.ToString());
         var stm = "SELECT VERSION()";
         var cmd = new MySqlCommand(stm, connection);
@@ -34,28 +30,28 @@ public class mySqlCrud : DatabaseConnection
         Console.WriteLine(connection.State.ToString());
     }
 
-    void registerAccount()
+    public void registerAccount()
     {
         
     }
-    void loginAccount()
+    public void loginAccount()
     {
         
     }
-    void logoutAccount()
+    public void logoutAccount()
     {
         
     }
-    void updateAccount()
+    public void updateAccount()
     {
-        
+        // 1. 
     }
-    void e()
+    public void e()
     {
         
     }
 
-    void f()
+    public void f()
     {
         
     }
