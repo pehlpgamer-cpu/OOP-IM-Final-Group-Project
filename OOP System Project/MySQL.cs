@@ -32,28 +32,27 @@ public class mySqlCrud : DatabaseConnection
 
     public void registerAccount()
     {
+        connection.Open();
         
+        connection.Close();
     }
     public void loginAccount()
     {
+        connection.Open();
         
+        connection.Close();
     }
     public void logoutAccount()
     {
+        connection.Open();
         
+        connection.Close();
     }
     public void updateAccount()
     {
-        // 1. 
-    }
-    public void e()
-    {
+        connection.Open();
         
-    }
-
-    public void f()
-    {
-        
+        connection.Close();
     }
     
 }

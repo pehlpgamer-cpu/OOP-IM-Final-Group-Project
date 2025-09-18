@@ -9,8 +9,6 @@ using System.Text;
 using Konscious.Security.Cryptography;
 public class Global
 {
-    public static string sessionId;
-    //public static string cs = @"server=localhost;userid=member;password=s$cret;database=testdb";
     
 }
 

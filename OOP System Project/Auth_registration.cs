@@ -56,12 +56,12 @@ public partial class Auth_registration : Form
             label_usernameInvalidInput.Visible = true;
             label_usernameInvalidInput.Text = $"Username can only be a minimum of {MINIMUM_USERNAME_LENGTH} characters.";
         }
-        /*else if (usernameExist)
+        else if (false) //usernameNotExist
         {
             validUsername = false;
             label_usernameInvalidInput.Visible = true;
             label_usernameInvalidInput.Text = $"{txtBox_username.Text} already exists.";
-        }*/
+        }
         else { validUsername = true; }
         
         //email
@@ -194,7 +194,7 @@ public partial class Auth_registration : Form
             "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
             "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
             "1","2","3","4","5","6","7","8","9","0",
-            "_","-",".",",","!","&","*"];
+            "_","-",".",",","!","&","*", " "];
         Random rnd = new Random();
         string generatedPassword = string.Empty;
         for (int i  = 0; i < MAXIMUM_PASSWORD_LENGTH; i++) 
