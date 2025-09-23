@@ -26,8 +26,6 @@ public partial class Auth_login : Form
     {
         if (txtBox_username.Text == string.Empty || txtBox_password.Text == string.Empty) btn_login.BackColor = Color.WhiteSmoke;
         else btn_login.BackColor = Color.LightGreen;
-        
-        
     }
 
     private void txtBox_password_TextChanged(object sender, EventArgs e)

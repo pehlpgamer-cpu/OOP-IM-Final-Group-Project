@@ -20,11 +20,12 @@ public class PasswordHasher
     private const int DegreeOfParallelism = 1; // Number of threads to use
     private const int Iterations = 2; // Number of iterations
     private const int MemorySize = 128 * 128; // 1024 * 1024 = 1GB
-
+    
+    private byte[] salt = new byte[SaltSize];
+    
     public string HashPassword(string password)
     {
         // Generate a random salt
-        byte[] salt = new byte[SaltSize];
         using (var rng = RandomNumberGenerator.Create())
         {
             rng.GetBytes(salt);
@@ -37,8 +38,13 @@ public class PasswordHasher
         Array.Copy(salt, 0, combinedBytes, 0, salt.Length);
         Array.Copy(hash, 0, combinedBytes, salt.Length, hash.Length);
 
-        // Convert to base64 for storage
-        return Convert.ToBase64String(combinedBytes);
+        // Convert for storage
+        return Convert.ToHexString(combinedBytes);
+    }
+
+    public string GetSalt()
+    {
+        return Convert.ToHexString(salt);
     }
 
     private byte[] HashPassword(string password, byte[] salt)
@@ -53,23 +59,8 @@ public class PasswordHasher
 
         return argon2.GetBytes(HashSize);
     }
-
-    public bool VerifyPassword(string password, string hashedPassword)
-    {
-        // Decode the stored hash
-        byte[] combinedBytes = Convert.FromBase64String(hashedPassword);
-
-        // Extract salt and hash
-        byte[] salt = new byte[SaltSize];
-        byte[] hash = new byte[HashSize];
-        Array.Copy(combinedBytes, 0, salt, 0, SaltSize);
-        Array.Copy(combinedBytes, SaltSize, hash, 0, HashSize);
-
-        // Compute hash for the input password
-        byte[] newHash = HashPassword(password, salt);
-
-        // Compare the hashes
-        return CryptographicOperations.FixedTimeEquals(hash, newHash);
-    }
+    
+    
+    
 }
 
