@@ -130,14 +130,12 @@ public partial class Auth_registration : Form
 
     void signup()
     {
-        var PassHash = new PasswordHasher();
+        
 
         // Hash a password
         string password = txtBox_password.Text;
         
         
-        string hashedPassword = PassHash.HashPassword(password);
-        Console.WriteLine($"Hashed Password: {hashedPassword}");
         
 
     }
@@ -204,10 +202,9 @@ public partial class Auth_registration : Form
         
         txtBox_password.Text = generatedPassword;
         txtBox_confirmPassword.Text = generatedPassword;
-        //Clipboard.SetText(generatedPassword);
+        
         validateInput();
-        //Console.WriteLine(generatedPassword);
-
+        
     }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

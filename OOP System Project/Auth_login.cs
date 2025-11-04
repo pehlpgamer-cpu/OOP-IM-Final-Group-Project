@@ -1,25 +1,13 @@
+using MySqlX.XDevAPI;
+
 namespace OOP_System_Project;
 using MySql.Data.MySqlClient;
 public partial class Auth_login : Form
 {
+    public static string SessionId = null;
     public Auth_login()
     {
         InitializeComponent();
-        /*string cs = "server=localhost;userid=root;password=root;database=oop_finalproject";
-
-        try
-        {
-            using var con = new MySqlConnection(cs);
-            con.Open();
-            Console.WriteLine("Connected!!!");
-        }
-        catch (MySqlException e)
-        {
-            Console.WriteLine("⚠ ERROR: " + e);
-        }*/
-
-        
-
     }
 
     private void LoginValidationFeedback()
@@ -49,15 +37,14 @@ public partial class Auth_login : Form
 
     void login()
     {
-        var hasher = new PasswordHasher();
+        
 
         // Hash a password
-        string password = "MySecurePassword123!";
-        string hashedPassword = hasher.HashPassword(password);
+        
         
         //get pass from db
         string hashedPassFromDb = "dsf";
-        string hashedPassword2 = hasher.HashPassword(hashedPassword);
+        
         
         // Verify the password
         
