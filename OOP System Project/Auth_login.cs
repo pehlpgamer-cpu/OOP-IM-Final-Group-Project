@@ -4,7 +4,7 @@ namespace OOP_System_Project;
 using MySql.Data.MySqlClient;
 public partial class Auth_login : Form
 {
-    public static string SessionId = null;
+    
     public Auth_login()
     {
         InitializeComponent();
@@ -37,15 +37,25 @@ public partial class Auth_login : Form
 
     void login()
     {
+        //if user input -> email/username && password = exists in DB 
         
-        // Hash a password
+        // get password_salt_fromDB
         
+        // bcrypt hash -> password_salt_fromDB + user input password
         
-        //get pass from db
-        string hashedPassFromDb = "dsf";
+        // get hashed_passwordFromDB 
         
+        // if ClientSide_hashedPassword == hashed_passwordFromDB
         
-        // Verify the password
+        // store valid session id & open transaction form
+        Global.SessionId = "valid_ID";
+        
+        // if there's no valid session id
+        // generate new session id and
+        Global.SessionId = "New_valid_ID";
+        // send to new session id -> DB
+        // and transaction form
+        
         
     }
 
@@ -66,5 +76,15 @@ public partial class Auth_login : Form
             txtBox_password.PasswordChar = '*';
             btn_passwordVisibility.Text = "view";
         }
+    }
+
+    private void txtBox_username_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        login();
+    }
+
+    private void txtBox_password_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        login();
     }
 }

@@ -47,6 +47,7 @@ partial class Auth_login
         txtBox_password.Size = new System.Drawing.Size(171, 34);
         txtBox_password.TabIndex = 1;
         txtBox_password.TextChanged += txtBox_password_TextChanged;
+        txtBox_password.KeyPress += txtBox_password_KeyPress;
         // 
         // txtBox_username
         // 
@@ -57,6 +58,7 @@ partial class Auth_login
         txtBox_username.Size = new System.Drawing.Size(171, 34);
         txtBox_username.TabIndex = 0;
         txtBox_username.TextChanged += txtBox_username_TextChanged;
+        txtBox_username.KeyPress += txtBox_username_KeyPress;
         // 
         // btn_login
         // 
