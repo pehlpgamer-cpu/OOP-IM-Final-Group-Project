@@ -293,9 +293,9 @@ partial class Auth_registration
 
     private System.Windows.Forms.Button btn_loginForm;
 
-    private System.Windows.Forms.Button btn_termsAndConditionsForm;
+    public System.Windows.Forms.Button btn_termsAndConditionsForm;
 
-    private System.Windows.Forms.CheckBox checkBox_termsAndAgreements;
+    private static System.Windows.Forms.CheckBox checkBox_termsAndAgreements;
 
     private System.Windows.Forms.Button btn_generatePassword;
     private System.Windows.Forms.Button btn_confirmPasswordVisibility;

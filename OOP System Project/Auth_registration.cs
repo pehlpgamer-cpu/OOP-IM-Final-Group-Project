@@ -240,4 +240,10 @@ private void txtBox_confirmPassword_KeyPress(object sender, KeyPressEventArgs e)
 {
     if (e.KeyChar == (char)Keys.Enter) signup();
 }
+
+public static void IAgreeToTermsAndConditions()
+{
+    checkBox_termsAndAgreements.Checked = true;
+}
+
 }
