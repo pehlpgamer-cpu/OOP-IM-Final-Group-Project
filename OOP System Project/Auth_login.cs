@@ -37,24 +37,24 @@ public partial class Auth_login : Form
 
     void login()
     {
-        //if user input -> email/username && password = exists in DB 
+        // TODO - if user input -> email/username && password = exists in DB 
         
-        // get password_salt_fromDB
+        // TODO - get password_salt_fromDB
         
-        // bcrypt hash -> password_salt_fromDB + user input password
+        // TODO - bcrypt hash -> password_salt_fromDB + user input password
         
-        // get hashed_passwordFromDB 
+        // TODO - get hashed_passwordFromDB 
         
-        // if ClientSide_hashedPassword == hashed_passwordFromDB
+        // TODO - if ClientSide_hashedPassword == hashed_passwordFromDB
         
-        // store valid session id & open transaction form
+        // TODO - store valid session id & open transaction form
         Global.SessionId = "valid_ID";
         
-        // if there's no valid session id
-        // generate new session id and
+        // TODO - if there's no valid session id
+        // TODO - generate new session id and
         Global.SessionId = "New_valid_ID";
-        // send to new session id -> DB
-        // and transaction form
+        // TODO - send to new session id -> DB
+        // TODO - and transaction form
         
         
     }

@@ -131,19 +131,19 @@ public partial class Auth_registration : Form
 
     void signup()
     {
-        //generate salt
+        //TODO - generate salt
         //
         
-        //bycrypt hash -> password + salt
+        //TODO - bycrypt hash -> password + salt
         //
         
-        // generate account verification code
+        //TODO - generate account verification code
         string EmailVerificationCode = "demoVerificationCode";
         
-        // insert all info into db
+        //TODO - insert all info into db
         //
         
-        //demo: send code to email
+        //TODO - demo: send code to email
         MessageBox.Show(EmailVerificationCode + "\n\nIs copied to clipboard", "Demo: Email Verification Code", MessageBoxButtons.OK, MessageBoxIcon.Information);
         Clipboard.SetText(EmailVerificationCode);
         
@@ -245,5 +245,7 @@ public static void IAgreeToTermsAndConditions(bool x)
 {
     checkBox_termsAndAgreements.Checked = x;
 }
+
+/*TODO - Implement Query Builder*/
 
 }
