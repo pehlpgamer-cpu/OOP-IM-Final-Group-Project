@@ -38,7 +38,6 @@ public partial class Auth_login : Form
     void login()
     {
         
-
         // Hash a password
         
         

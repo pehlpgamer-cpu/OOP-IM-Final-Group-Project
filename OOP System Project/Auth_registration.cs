@@ -58,6 +58,7 @@ public partial class Auth_registration : Form
         }
         else if (false) //usernameNotExist
         {
+            // if (
             validUsername = false;
             label_usernameInvalidInput.Visible = true;
             label_usernameInvalidInput.Text = $"{txtBox_username.Text} already exists.";
@@ -130,14 +131,25 @@ public partial class Auth_registration : Form
 
     void signup()
     {
+        //generate salt
+        //
         
-
-        // Hash a password
-        string password = txtBox_password.Text;
+        //bycrypt hash -> password + salt
+        //
         
+        // generate account verification code
+        string EmailVerificationCode = "demoVerificationCode";
         
+        // insert all info into db
+        //
         
-
+        //demo: send code to email
+        MessageBox.Show(EmailVerificationCode + "\n\nIs copied to clipboard", "Demo: Email Verification Code", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        Clipboard.SetText(EmailVerificationCode);
+        
+        VerifyAccount verifyAccount = new VerifyAccount();
+        verifyAccount.Show();
+        
     }
     
     
