@@ -32,7 +32,7 @@ partial class TermsAndConditions
     private void InitializeComponent()
     {
         btn_agree = new System.Windows.Forms.Button();
-        btn_cancel = new System.Windows.Forms.Button();
+        btn_IDontAgree = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // btn_agree
@@ -45,28 +45,29 @@ partial class TermsAndConditions
         btn_agree.UseVisualStyleBackColor = true;
         btn_agree.Click += btn_agree_Click;
         // 
-        // btn_cancel
+        // btn_IDontAgree
         // 
-        btn_cancel.Location = new System.Drawing.Point(275, 390);
-        btn_cancel.Name = "btn_cancel";
-        btn_cancel.Size = new System.Drawing.Size(82, 38);
-        btn_cancel.TabIndex = 1;
-        btn_cancel.Text = "cancel";
-        btn_cancel.UseVisualStyleBackColor = true;
+        btn_IDontAgree.Location = new System.Drawing.Point(275, 390);
+        btn_IDontAgree.Name = "btn_IDontAgree";
+        btn_IDontAgree.Size = new System.Drawing.Size(82, 38);
+        btn_IDontAgree.TabIndex = 1;
+        btn_IDontAgree.Text = "cancel";
+        btn_IDontAgree.UseVisualStyleBackColor = true;
+        btn_IDontAgree.Click += btn_IDontAgree_Click;
         // 
         // TermsAndConditions
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
-        Controls.Add(btn_cancel);
+        Controls.Add(btn_IDontAgree);
         Controls.Add(btn_agree);
         Text = "TermsAndConditions";
         ResumeLayout(false);
     }
 
     private System.Windows.Forms.Button btn_agree;
-    private System.Windows.Forms.Button btn_cancel;
+    private System.Windows.Forms.Button btn_IDontAgree;
 
     #endregion
 }

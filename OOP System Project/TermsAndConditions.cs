@@ -9,7 +9,13 @@ public partial class TermsAndConditions : Form
 
     private void btn_agree_Click(object sender, EventArgs e)
     {
-        Auth_registration.IAgreeToTermsAndConditions();
+        Auth_registration.IAgreeToTermsAndConditions(true);
+        Close();
+    }
+
+    private void btn_IDontAgree_Click(object sender, EventArgs e)
+    {
+        Auth_registration.IAgreeToTermsAndConditions(false);
         Close();
     }
 }

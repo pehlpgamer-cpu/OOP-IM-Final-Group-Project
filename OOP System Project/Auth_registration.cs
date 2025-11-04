@@ -241,9 +241,9 @@ private void txtBox_confirmPassword_KeyPress(object sender, KeyPressEventArgs e)
     if (e.KeyChar == (char)Keys.Enter) signup();
 }
 
-public static void IAgreeToTermsAndConditions()
+public static void IAgreeToTermsAndConditions(bool x)
 {
-    checkBox_termsAndAgreements.Checked = true;
+    checkBox_termsAndAgreements.Checked = x;
 }
 
 }
