@@ -14,6 +14,7 @@
       <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
       <PackageReference Include="MaterialSkin" Version="0.2.1" />
       <PackageReference Include="MySql.Data" Version="9.4.0" />
+      <PackageReference Include="MySqlConnector" Version="2.4.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -27,6 +28,9 @@
         <SubType>Form</SubType>
       </Compile>
       <Compile Update="VerifyAccount.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Transaction.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>

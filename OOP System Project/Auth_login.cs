@@ -4,12 +4,43 @@ namespace OOP_System_Project;
 using MySql.Data.MySqlClient;
 public partial class Auth_login : Form
 {
+    public static int SelectedBookId;
+    static string server = "localhost";
+    static string database = "ProductPriceAndTransactionDB";
+    static string userid = "root";
+    static string password = "root";
     
+    public static string cs = $"server={server};userid={userid};password={password};database={database};";
     public Auth_login()
     {
         InitializeComponent();
+        using var con = new MySqlConnection(cs);
+        try
+        {
+            con.Open();
+            Console.WriteLine("connection successful!");
+            createTableIfNotExist();
+            con.Close();
+        }
+        catch (Exception e)
+        {
+            MessageBox.Show($"(MySQL connection details)/n" +
+                            $"🗄️Server: {server}\n" +
+                            $"🗃️Database: {database}\n" +
+                            $"🪪User Id: {userid}\n" +
+                            $"🗝️Password: {password}\n" +
+                            $"\n⚠️ERROR MESSAGE:\n{e.Message}",
+                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            /*DatabaseConnectionForm databaseConnectionForm = new DatabaseConnectionForm();
+            databaseConnectionForm.Show();*/
+        }
     }
 
+    public void createTableIfNotExist()
+    {
+        
+    }
+    
     private void LoginValidationFeedback()
     {
         if (txtBox_username.Text == string.Empty || txtBox_password.Text == string.Empty) btn_login.BackColor = Color.WhiteSmoke;
@@ -37,6 +68,7 @@ public partial class Auth_login : Form
 
     void login()
     {
+        MessageBox.Show("WIP", "WIP");
         // TODO - if user input -> email/username && password = exists in DB 
         
         // TODO - get password_salt_fromDB
@@ -55,7 +87,6 @@ public partial class Auth_login : Form
         Global.SessionId = "New_valid_ID";
         // TODO - send to new session id -> DB
         // TODO - and transaction form
-        
         
     }
 
@@ -80,11 +111,18 @@ public partial class Auth_login : Form
 
     private void txtBox_username_KeyPress(object sender, KeyPressEventArgs e)
     {
-        login();
+        if (e.KeyChar == (char)Keys.Enter) login();
     }
 
     private void txtBox_password_KeyPress(object sender, KeyPressEventArgs e)
     {
-        login();
+        if (e.KeyChar == (char)Keys.Enter) login();
+    }
+
+    private void btn_continueAsGuest_Click(object sender, EventArgs e)
+    {
+        Hide();
+        Transaction transaction = new Transaction();
+        transaction.Show();
     }
 }

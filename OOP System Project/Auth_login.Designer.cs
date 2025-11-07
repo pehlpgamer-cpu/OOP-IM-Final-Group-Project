@@ -34,7 +34,7 @@ partial class Auth_login
         btn_login = new System.Windows.Forms.Button();
         btn_passwordVisibility = new System.Windows.Forms.Button();
         btn_signupForm = new System.Windows.Forms.Button();
-        button1 = new System.Windows.Forms.Button();
+        btn_continueAsGuest = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // txtBox_password
@@ -97,17 +97,18 @@ partial class Auth_login
         btn_signupForm.UseVisualStyleBackColor = true;
         btn_signupForm.Click += btn_signupForm_Click;
         // 
-        // button1
+        // btn_continueAsGuest
         // 
-        button1.FlatAppearance.BorderSize = 0;
-        button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)0));
-        button1.Location = new System.Drawing.Point(288, 271);
-        button1.Name = "button1";
-        button1.Size = new System.Drawing.Size(163, 36);
-        button1.TabIndex = 7;
-        button1.Text = "Continue as guest";
-        button1.UseVisualStyleBackColor = true;
+        btn_continueAsGuest.FlatAppearance.BorderSize = 0;
+        btn_continueAsGuest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        btn_continueAsGuest.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)0));
+        btn_continueAsGuest.Location = new System.Drawing.Point(288, 271);
+        btn_continueAsGuest.Name = "btn_continueAsGuest";
+        btn_continueAsGuest.Size = new System.Drawing.Size(163, 36);
+        btn_continueAsGuest.TabIndex = 7;
+        btn_continueAsGuest.Text = "Continue as guest";
+        btn_continueAsGuest.UseVisualStyleBackColor = true;
+        btn_continueAsGuest.Click += btn_continueAsGuest_Click;
         // 
         // Auth_login
         // 
@@ -115,7 +116,7 @@ partial class Auth_login
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         BackColor = System.Drawing.SystemColors.Control;
         ClientSize = new System.Drawing.Size(754, 450);
-        Controls.Add(button1);
+        Controls.Add(btn_continueAsGuest);
         Controls.Add(btn_signupForm);
         Controls.Add(btn_passwordVisibility);
         Controls.Add(btn_login);
@@ -127,7 +128,7 @@ partial class Auth_login
         PerformLayout();
     }
 
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btn_continueAsGuest;
 
     private System.Windows.Forms.Button btn_signupForm;
 
